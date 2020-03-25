@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="filesync" />
+        <module name="basis" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="basis" target="1.5" />
+      <module name="design" target="1.5" />
       <module name="filesync" target="1.5" />
       <module name="wakaka" target="1.5" />
     </bytecodeTargetLevel>

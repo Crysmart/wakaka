@@ -8,7 +8,9 @@
     <version>0.0.1</version>
     <packaging>pom</packaging>
     <modules>
-        <module>filesync</module>
+        <module>basis</module>
+<!--        <module>design</module>-->
+<!--        <module>filesync</module>-->
     </modules>
 
     <properties>

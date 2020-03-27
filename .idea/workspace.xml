@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="273f058a-4ef6-4248-8a87-69e12d10d9bb" name="Default Changelist" comment="" />
+    <list default="true" id="273f058a-4ef6-4248-8a87-69e12d10d9bb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,6 +68,11 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Workspace\Java\wakaka" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Arrays">
     <configuration name="Arrays" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.wakaka.basis.array.Arrays" />
@@ -125,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585148220170</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="test">
+      <created>1585319583218</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1585319583218</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,7 +147,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="添加冒泡排序" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加冒泡排序" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="WindowStateProjectService">
     <state x="811" y="411" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1585146127731">
@@ -144,10 +159,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="249" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585315651264" />
-    <state x="611" y="111" key="CommitChangelistDialog2" timestamp="1585148218424">
+    <state x="611" y="111" key="CommitChangelistDialog2" timestamp="1585319581921">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="611" y="111" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585148218424" />
+    <state x="611" y="111" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585319581921" />
     <state width="1877" height="338" key="GridCell.Tab.0.bottom" timestamp="1585148323661">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -184,6 +199,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1577638377578" />
+    <state x="792" y="226" key="VCS.ChangeListViewerDialog" timestamp="1585319699261">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="792" y="226" key="VCS.ChangeListViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585319699261" />
     <state x="616" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1577635876776">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

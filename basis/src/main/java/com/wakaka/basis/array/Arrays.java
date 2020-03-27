@@ -8,7 +8,7 @@ package com.wakaka.basis.array;
  */
 public class Arrays {
 
-    /** 冒泡排序:数值交换1 */
+    /** 冒泡排序:数值交换 */
     public static int[] BubbleSort(int[] ints) {
         for (int j = 0; j < ints.length; j++) {
             for (int i = 0; i < ints.length - j - 1; i++) {

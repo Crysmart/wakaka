@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="273f058a-4ef6-4248-8a87-69e12d10d9bb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basis/src/main/java/com/wakaka/basis/array/Arrays.java" beforeDir="false" afterPath="$PROJECT_DIR$/basis/src/main/java/com/wakaka/basis/array/Arrays.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,6 +195,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="334" y="223" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1585145894900" />
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1585318019960">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585318019960" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1585147720508">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

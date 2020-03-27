@@ -11,7 +11,7 @@ public class Arrays {
     /** 冒泡排序:数值交换 */
     public static int[] BubbleSort(int[] ints) {
         for (int j = 0; j < ints.length; j++) {
-            for (int i = 0; i < ints.length - 1; i++) {
+            for (int i = 0; i < ints.length - j - 1; i++) {
                 if (ints[i] > ints[i + 1]) {
                     int temp = ints[i];
                     ints[i] = ints[i + 1];

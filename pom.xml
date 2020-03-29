@@ -9,8 +9,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>basis</module>
-<!--        <module>design</module>-->
-<!--        <module>filesync</module>-->
+        <module>design</module>
     </modules>
 
     <properties>

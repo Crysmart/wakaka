@@ -3,12 +3,16 @@ package com.wakaka.basis.array;
 /**
  * 数组相关
  *
- * @author Wang.hm
+ * @author wakaka
  * @date Created in 22:23 2020/3/25
  */
 public class Arrays {
 
-    /** 冒泡排序:数值交换 */
+    /**
+     * 冒泡排序:数值交换
+     * 内循环控制数值交换，每一次外层循环都会使内层循环-1
+     * 外循环控制循环次数
+     */
     public static int[] BubbleSort(int[] ints) {
         for (int j = 0; j < ints.length; j++) {
             for (int i = 0; i < ints.length - j - 1; i++) {

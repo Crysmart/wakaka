@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * java基础
+ * java基础1
  */
 @SpringBootApplication
 public class BasisApplication {

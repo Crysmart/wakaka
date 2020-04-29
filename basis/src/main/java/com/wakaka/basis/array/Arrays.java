@@ -13,7 +13,7 @@ public class Arrays {
      * 内循环控制数值交换，每一次外层循环都会使内层循环-1
      * 外循环控制循环次数
      */
-    public static int[] BubbleSort(int[] ints) {
+    public static int[] bubbleSort(int[] ints) {
         for (int j = 0; j < ints.length; j++) {
             for (int i = 0; i < ints.length - j - 1; i++) {
                 if (ints[i] > ints[i + 1]) {

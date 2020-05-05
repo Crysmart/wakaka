@@ -1,5 +1,7 @@
 package com.wakaka.design.designs;
 
+import java.lang.reflect.Constructor;
+
 /**
  * 工厂设计模式
  *
@@ -8,13 +10,20 @@ package com.wakaka.design.designs;
  */
 public class FactoryDesign {
     public static void main(String[] args) {
-        IMsgService instance = Factory.getInstance(MsgServiceImpl.class);
-        instance.send();
+        IMsgService msg = Factory.getInstance(MsgServiceImpl.class);
+        msg.send();
+        IMsgService mgg = Factory.getInstance(MggServiceImpl.class);
+        mgg.send();
     }
 }
 
 class Factory{
     public static <T> T getInstance(Class<?> clz){
+        try {
+            return (T) clz.getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 }
@@ -26,6 +35,11 @@ interface IMsgService{
 class MsgServiceImpl implements IMsgService{
     public void send() {
         System.out.println("发送");
+    }
+}
+class MggServiceImpl implements IMsgService{
+    public void send() {
+        System.out.println("gg");
     }
 }
 

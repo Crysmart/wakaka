@@ -45,4 +45,14 @@ public class JavaBean {
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
+
+    @Override
+    public String toString() {
+        return "JavaBean{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", age=" + age +
+                ", birthday=" + birthday +
+                '}';
+    }
 }

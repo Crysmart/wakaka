@@ -8,15 +8,9 @@ package com.wakaka.basis.reflect;
  */
 public class CreateBean {
     public static void main(String[] args) {
-        String strBean = "username:admin|password:123|age:18|birthday:1999-09-09";
-        String[] propertyKeyValue = strBean.split("[|]");
-        for (int i = 0; i < propertyKeyValue.length; i++) {
-            String[] keyValue = propertyKeyValue[i].split("[:]");
-            String key = BeanUtils.convertBeanPropertyName(keyValue[0]);
-            String value = keyValue[1];
-            System.out.println("key="+key+" value="+value);
-            BeanUtils.createBean(JavaBean.class);
-        }
+        String strBean = "username:admin|password:123|age:18|birthday:1999-09-09 12-12-12";
+        JavaBean bean = BeanUtils.getBean(JavaBean.class, strBean, "|");
+        System.out.println(bean.toString());
     }
 
 

@@ -10,6 +10,8 @@
     <modules>
         <module>basis</module>
         <module>design</module>
+        <module>game</module>
+        <module>Docker</module>
     </modules>
 
     <properties>

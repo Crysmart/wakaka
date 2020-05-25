@@ -15,6 +15,13 @@
     <description>java基础</description>
 
     <dependencies>
+        <!-- 基于cglib的动态代理 -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>

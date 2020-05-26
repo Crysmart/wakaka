@@ -1,10 +1,6 @@
 package com.wakaka.basis.proxy;
 
-import net.sf.cglib.proxy.MethodInterceptor;
-import net.sf.cglib.proxy.MethodProxy;
 
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
@@ -13,38 +9,26 @@ import java.lang.reflect.Proxy;
  */
 public class MainFactoryProxy {
     public static void main(String[] args) {
-        IFactoryMessage instance = FactoryProxy.getInstance(FactoryMessage.class);
-        instance.send();
+        IFactoryMessage proxy = (IFactoryMessage)FactoryProxy.getProxy(FactoryMessage.class);
+        proxy.send();
     }
 }
 
 /**
  * 工厂代理
  */
-class FactoryProxy implements InvocationHandler {
-    private Object target;
-    private Object bind;
-    public FactoryProxy(){}
-    public FactoryProxy(Object target){
-        this.target = target;
-        this.bind = Proxy.newProxyInstance(
-                target.getClass().getClassLoader(),
-                target.getClass().getInterfaces(),
-                this
+class FactoryProxy{
+    public static Object getProxy(final Class<?> clz){
+        return Proxy.newProxyInstance(
+                clz.getClassLoader(),
+                clz.getInterfaces(),
+                (proxy, method, args) -> {
+                    System.out.println("前置");
+                    Object invoke = method.invoke(clz.getDeclaredConstructor().newInstance(), args);
+                    System.out.println("后置");
+                    return invoke;
+                }
         );
-    }
-    public static <T> T getInstance(Class<?> clz) {
-        try {
-            return (T) clz.getDeclaredConstructor().newInstance();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        return method.invoke(proxy,args);
     }
 }
 

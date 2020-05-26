@@ -31,7 +31,6 @@ class Work implements IWork{
 }
 
 class WorkProxy implements MethodInterceptor{
-    public WorkProxy(){}
     @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         return methodProxy.invokeSuper(o,objects);

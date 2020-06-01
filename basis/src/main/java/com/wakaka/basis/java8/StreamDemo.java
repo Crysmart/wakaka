@@ -9,6 +9,14 @@ import java.util.stream.Stream;
  */
 public class StreamDemo {
     public static void main(String[] args) {
+        test8();
+    }
+
+    private static void test8() {
+        List<String> list = Arrays.asList("aaa","b%dbb","cccccc");
+        String collect = list.stream()
+                //Collectors对象是对集合进行处理
+                .collect(Collectors.joining(",","[","]"));
     }
 
     private static void test7() {

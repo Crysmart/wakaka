@@ -1,13 +1,12 @@
 package com.wakaka.basis.java8;
 
 
-import java.util.Optional;
-
 /**
+ *  Optional 主要是去除烦人的NullPointException
  * @author Crysmart
  */
 public class OptionalDemo {
     public static void main(String[] args) {
-        Optional.ofNullable("55").filter(null);
+
     }
 }

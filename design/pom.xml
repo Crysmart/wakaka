@@ -13,15 +13,20 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>design</name>
     <description>Demo project for Spring Boot</description>
-
+    <properties>
+        <java.version>1.8</java.version>
+        <springframework.boot.version>2.2.2.RELEASE</springframework.boot.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+            <version>${springframework.boot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <version>${springframework.boot.version}</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>

@@ -13,7 +13,10 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>basis</name>
     <description>java基础</description>
-
+    <properties>
+        <java.version>1.8</java.version>
+        <springframework.boot.version>2.2.2.RELEASE</springframework.boot.version>
+    </properties>
     <dependencies>
         <!-- 基于cglib的动态代理 -->
         <dependency>
@@ -25,10 +28,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+            <version>${springframework.boot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <version>${springframework.boot.version}</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>

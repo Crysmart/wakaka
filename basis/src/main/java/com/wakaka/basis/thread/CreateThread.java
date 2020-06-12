@@ -1,7 +1,6 @@
-package com.wakaka.basis.juc;
+package com.wakaka.basis.thread;
 
 import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
 
 /**
  * 线程创建方式
@@ -18,6 +17,7 @@ public class CreateThread {
 
 class TreadRun implements Runnable{
     private Integer ticket = 5000;
+    @Override
     public void run() {
         for (int i = 0; i < 5000; i++) {
             if (ticket >= 0){
@@ -29,6 +29,7 @@ class TreadRun implements Runnable{
 
 class CallAbleRun implements Callable<String>{
     private Integer ticket = 5000;
+    @Override
     public String call() throws Exception {
         for (int i = 0; i < 5000; i++) {
             if (ticket >= 0){

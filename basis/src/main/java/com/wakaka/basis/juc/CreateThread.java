@@ -1,4 +1,4 @@
-package com.wakaka.basis.thread;
+package com.wakaka.basis.juc;
 
 import java.util.concurrent.Callable;
 

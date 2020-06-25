@@ -18,17 +18,16 @@ public class SpringProfile {
     @Autowired
     private Environment environment;
 
-    @Bean
+    /*@Bean
     public JavaBean init(){
         //PropertySource + Environment 则可以获取properties中的内容
         String username = environment.getProperty("username");
         System.out.println("username = " + username);
         return new JavaBean();
-    }
+    }*/
 
     public static void main(String[] args) {
-        System.out.println(1);
         //spring注解注入bean
-        //new AnnotationConfigApplicationContext(SpringProfile.class);
+        new AnnotationConfigApplicationContext(SpringProfile.class);
     }
 }

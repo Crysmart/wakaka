@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	scan: 当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。
+　　　scanPeriod: 设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。
+　　　debug: 当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。
+ -->
+<configuration scan="true" scanPeriod="1 seconds" debug="false">
+    <!-- 如果配置文件 logback-test.xml 和 logback.xml 都不存在，那么 logback 默认地会调用BasicConfigurator ，
+        创建一个最小化配置。最小化配置由一个关联到根 logger 的ConsoleAppender 组成。
+        输出用模式为%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n的 PatternLayoutEncoder
+        进行格式化。root logger 默认级别是 DEBUG。
+        Logback 配置文件的语法非常灵活。正因为灵活，所以无法用 DTD 或 XML schema 进行定义。
+        尽管如此，可以这样描述配置文件的基本结构：以<configuration>开头，后面有零个或多个<appender>元素，
+        有零个或多个<logger>元素，有最多一个<root>元素。
+        (1). 尝试在 classpath 下查找文件 logback-test.xml；
+        (2). 如果文件不存在，则查找文件 logback.xml；
+        (3). 如果两个文件都不存在，logback 用 Bas icConfigurator 自动对自己进行配置，这会导致记录输出到控制台。
+    -->
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+    <property name="APP_NAME" value="platform-designer"/>
+    <!-- 定义日志文件的存储地址，勿在logback得配置中使用相对路径 -->
+    <springProfile name="dev">
+        <property name="LOG_HOME" value="E:/logs/${APP_NAME}"/>
+    </springProfile>
+    <springProfile name="test">
+        <property name="LOG_HOME" value="/usr/local/logs/${APP_NAME}"/>
+    </springProfile>
+    <springProfile name="prod">
+        <property name="LOG_HOME" value="/usr/local/logs/${APP_NAME}"/>
+    </springProfile>
+    <!-- 格式化日志输出（%d：表示日期 ，%thread：表示线程名，%5-level：级别从左显示5个字符宽度，%logger{36}：表示logger名字最长36个字符 为0表示只输入logger最右边点符号之后的字符串 ，%msg：日志消息，%n：换行符）-->
+    <property name="ENCODER_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger %line - %msg%n"/>
+    <property name="ENCODING" value="UTF-8"/>
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
+    <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
+    <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
+    <property name="CONSOLE_LOG_PATTERN" value="${CONSOLE_LOG_PATTERN:-%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+    <property name="FILE_LOG_PATTERN" value="${FILE_LOG_PATTERN:-%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+
+
+    <contextName>${APP_NAME}</contextName>
+    <jmxConfigurator/>
+
+    <!-- 控制台输出 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder charset="${ENCODING}" class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 按照每天生成日志 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 日志文件输出的文件名 -->
+            <FileNamePattern>${LOG_HOME}/${APP_NAME}-%d{yyyy-MM-dd}.log</FileNamePattern>
+            <!-- 日志保留天数 -->
+            <MaxHistory>60</MaxHistory>
+        </rollingPolicy>
+        <encoder charset="${ENCODING}" class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 将org.springframework.web包下的类的日志级别设置为DEBUG，我们开发 Spring MVC 经常出现和参数类型相关的4XX错误，设置此项我们会看到更详细的错误信息 -->
+    <logger name="org.springframework.web" level="INFO"/>
+    <!--myibatis log configure-->
+    <logger name="com.apache.ibatis" level="TRACE"/>
+    <logger name="java.sql.Connection" level="DEBUG"/>
+    <logger name="java.sql.Statement" level="DEBUG"/>
+    <logger name="java.sql.PreparedStatement" level="DEBUG"/>
+    <logger name="druid.sql.Statement" level="DEBUG" />
+    <logger name="com.cn.szb.plat.cost.dal" level="TRACE" />
+    <logger name="org.apache.catalina.startup.DigesterFactory" level="ERROR"/>
+    <logger name="org.apache.catalina.util.LifecycleBase" level="ERROR"/>
+    <logger name="org.apache.coyote.http11.Http11NioProtocol" level="WARN"/>
+    <logger name="org.apache.sshd.common.util.SecurityUtils" level="WARN"/>
+    <logger name="org.apache.tomcat.util.net.NioSelectorPool" level="WARN"/>
+    <logger name="org.eclipse.jetty.util.component.AbstractLifeCycle" level="ERROR"/>
+    <logger name="org.hibernate.validator.internal.util.Version" level="WARN"/>
+
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+      	<appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

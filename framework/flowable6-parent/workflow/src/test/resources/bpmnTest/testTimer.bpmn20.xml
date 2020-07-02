@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
+  <process id="test_key" name="test" isExecutable="true">
+    <documentation>description_test</documentation>
+    <startEvent id="startEvent1" flowable:formFieldValidation="true"></startEvent>
+    <serviceTask id="sid-E442BFA2-CA8F-4121-988F-8D7A9627F7AF" name="测试服务任务" flowable:class="com.szb.platform.workflow.engine.task.service.TestServiceTask">
+      <documentation>触发服务任务</documentation>
+    </serviceTask>
+    <endEvent id="sid-B382BF0D-5F4C-4BE9-BCB3-125955AA6976"></endEvent>
+    <sequenceFlow id="sid-A2BDE9FE-125D-4DA7-B31A-00043B360B2F" sourceRef="sid-E442BFA2-CA8F-4121-988F-8D7A9627F7AF" targetRef="sid-B382BF0D-5F4C-4BE9-BCB3-125955AA6976"></sequenceFlow>
+    <intermediateCatchEvent id="sid-7C007716-971D-457D-BC27-C366CC51B8FE">
+      <timerEventDefinition>
+<!--        <timeDuration>PT1M</timeDuration>-->
+        <timeDate>${timeDate}</timeDate>
+      </timerEventDefinition>
+    </intermediateCatchEvent>
+    <sequenceFlow id="sid-3BF72D4A-8081-4C05-AD6D-4A574A231257" sourceRef="startEvent1" targetRef="sid-7C007716-971D-457D-BC27-C366CC51B8FE"></sequenceFlow>
+    <sequenceFlow id="sid-8E4B5C5E-5847-4CF7-93A8-3E491C5B33A5" sourceRef="sid-7C007716-971D-457D-BC27-C366CC51B8FE" targetRef="sid-E442BFA2-CA8F-4121-988F-8D7A9627F7AF"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_test_key">
+    <bpmndi:BPMNPlane bpmnElement="test_key" id="BPMNPlane_test_key">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="45.0" y="163.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-E442BFA2-CA8F-4121-988F-8D7A9627F7AF" id="BPMNShape_sid-E442BFA2-CA8F-4121-988F-8D7A9627F7AF">
+        <omgdc:Bounds height="80.0" width="100.0" x="315.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-B382BF0D-5F4C-4BE9-BCB3-125955AA6976" id="BPMNShape_sid-B382BF0D-5F4C-4BE9-BCB3-125955AA6976">
+        <omgdc:Bounds height="28.0" width="28.0" x="540.0" y="164.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-7C007716-971D-457D-BC27-C366CC51B8FE" id="BPMNShape_sid-7C007716-971D-457D-BC27-C366CC51B8FE">
+        <omgdc:Bounds height="31.0" width="31.0" x="135.0" y="150.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-3BF72D4A-8081-4C05-AD6D-4A574A231257" id="BPMNEdge_sid-3BF72D4A-8081-4C05-AD6D-4A574A231257">
+        <omgdi:waypoint x="74.9499909886806" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="105.0" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="105.0" y="165.5"></omgdi:waypoint>
+        <omgdi:waypoint x="135.0" y="165.5"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-8E4B5C5E-5847-4CF7-93A8-3E491C5B33A5" id="BPMNEdge_sid-8E4B5C5E-5847-4CF7-93A8-3E491C5B33A5">
+        <omgdi:waypoint x="166.94999756672104" y="166.0"></omgdi:waypoint>
+        <omgdi:waypoint x="240.5" y="166.0"></omgdi:waypoint>
+        <omgdi:waypoint x="240.5" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="314.9999999999723" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-A2BDE9FE-125D-4DA7-B31A-00043B360B2F" id="BPMNEdge_sid-A2BDE9FE-125D-4DA7-B31A-00043B360B2F">
+        <omgdi:waypoint x="414.94999999996753" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="540.0" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

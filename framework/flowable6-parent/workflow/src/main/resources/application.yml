@@ -1,0 +1,34 @@
+spring:
+  profiles:
+    active: dev
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+mybatis:
+  mapper-locations: classpath*:com/szb/platform/workflow/dal/persistence/*Mapper.xml
+  type-aliases-package: com.szb.platform.workflow.dal.entity
+  base-packages: com.szb.platform.workflow.dal
+
+# 分页配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+
+hj:
+  swagger:
+    base-package: com.szb.platform.workflow
+    author: WHM
+    title: 流程任务
+    description: 流程任务相关接口
+    version: 1.0
+
+flowable:
+  activity-font-name: 宋体
+  label-font-name: 宋体
+  annotation-font-name: 宋体

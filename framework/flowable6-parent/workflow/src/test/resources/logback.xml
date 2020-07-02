@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	scan: 当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。
+　　　scanPeriod: 设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。
+　　　debug: 当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。
+ -->
+<configuration scan="true" scanPeriod="1 seconds" debug="false">
+    <!-- 如果配置文件 logback-test.xml 和 logback.xml 都不存在，那么 logback 默认地会调用BasicConfigurator ，
+        创建一个最小化配置。最小化配置由一个关联到根 logger 的ConsoleAppender组成。
+        输出用模式为%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n的 PatternLayoutEncoder
+        进行格式化。root logger 默认级别是 DEBUG。
+        Logback 配置文件的语法非常灵活。正因为灵活，所以无法用 DTD 或 XML schema 进行定义。
+        尽管如此，可以这样描述配置文件的基本结构：以<configuration>开头，后面有零个或多个<appender>元素，
+        有零个或多个<logger>元素，有最多一个<root>元素。
+        (1). 尝试在 classpath 下查找文件 logback-test.xml；
+        (2). 如果文件不存在，则查找文件 logback.xml；
+        (3). 如果两个文件都不存在，logback 用 Bas icConfigurator 自动对自己进行配置，这会导致记录输出到控制台。
+    -->
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+    <!--
+        子节点<property>:
+            用来定义变量值，它有两个属性name和value，通过<property>定义的值会被插入到logger上下文中，可以使“${}”来使用变量。
+            name: 变量的名称
+            value: 的值时变量定义的值
+     -->
+    <property name="APP_NAME" value="hello-activiti6"/>
+    <!-- 格式化日志输出（%d：表示日期 ，%thread：表示线程名，%5-level：级别从左显示5个字符宽度，%logger{36}：表示logger名字最长36个字符 为0表示只输入logger最右边点符号之后的字符串 ，%msg：日志消息，%n：换行符）-->
+    <property name="ENCODER_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger %line - %msg%n"/>
+    <property name="ENCODING" value="UTF-8"/>
+    <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger %line - %msg%n"/>
+    <property name="LOG_HOME" value="D:/Workspace/Java/hello-activiti6/logs/${APP_NAME}"/>
+    <!-- property 的 name-->
+    <contextName>${APP_NAME}</contextName>
+    <jmxConfigurator/>
+
+    <!-- 控制台输出
+        子节点<appender>：
+            负责写日志的组件，它有两个必要属性name和class。
+            name:指定appender名称
+            class:指定appender的全限定名
+     -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder charset="${ENCODING}" class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${ENCODER_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 按照每天生成日志 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 安全写入:效率低,默认false -->
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 日志文件输出的文件名
+                <fileNamePattern>：必要节点，包含文件名及“%d”转换符，
+                “%d”可以包含一个java.text.SimpleDateFormat指定的时间格式,如：%d{yyyy-MM}。如果直接使用 %d，默认格式是 yyyy-MM-dd。
+                RollingFileAppender的file字节点可有可无，通过设置file，可以为活动文件和归档文件指定不同位置，
+                当前日志总是记录到file指定的文件（活动文件），活动文件的名字不会改变；
+                如果没设置file，活动文件的名字会根据fileNamePattern 的值，每隔一段时间改变一次。“/”或者“\”会被当做目录分隔符。
+             -->
+            <FileNamePattern>${LOG_HOME}/${APP_NAME}-%d{yyyy-MM-dd}.log</FileNamePattern>
+            <!-- 日志保留天数 -->
+            <MaxHistory>60</MaxHistory>
+        </rollingPolicy>
+        <!-- <encoder>：对记录事件进行格式化。负责两件事，一是把日志信息转换成字节数组，二是把字节数组写入到输出流。 -->
+        <encoder charset="${ENCODING}" class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 其他系统内日志等级 -->
+    <logger name="org" level="WARN"/>
+    <logger name="liquibase" level="WARN"/>
+    <logger name="com.alibaba" level="WARN"/>
+    <logger name="springfox" level="WARN"/>
+
+
+    <!-- 控制台输出等级
+        子节点<root>:它也是<logger>元素，但是它是根logger,是所有<logger>的上级。
+        只有一个level属性，因为name已经被命名为"root",且已经是最上级了
+    -->
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szb.platform.workflow.dal.persistence.MoveMapper">
+
+    <!-- 调用进度方法,子流程 -->
+    <resultMap id="ChildInvokeMap" type="com.szb.platform.workflow.dal.entity.ChildInvoke">
+        <result column="ARCI_id" jdbcType="BIGINT" property="id"/>
+        <result column="ARCI_task_def_key" jdbcType="VARCHAR" property="taskDefKey"/>
+        <result column="ARCI_invoke_class" jdbcType="VARCHAR" property="invokeClass"/>
+        <result column="ARCI_invoke_method" jdbcType="VARCHAR" property="invokeMethod"/>
+        <result column="ARCI_proc_inst_id" jdbcType="VARCHAR" property="procInstId"/>
+    </resultMap>
+    <!-- 调用进度方法,子流程表字段 -->
+    <sql id="childInvokeField">
+        ARCI.id AS ARCI_id
+        ,ARCI.task_def_key AS ARCI_task_def_key
+        ,ARCI.invoke_class AS ARCI_invoke_class
+        ,ARCI.invoke_method AS ARCI_invoke_method
+        ,ARCI.proc_inst_id AS ARCI_proc_inst_id
+    </sql>
+
+    <!-- 调用进度方法,主流程 -->
+    <resultMap id="MainInvokeMap" type="com.szb.platform.workflow.dal.entity.MainInvoke">
+        <result column="ARMI_id" jdbcType="BIGINT" property="id"/>
+        <result column="ARMI_task_def_key" jdbcType="VARCHAR" property="taskDefKey"/>
+        <result column="ARMI_child_task_def_key" jdbcType="VARCHAR" property="childTaskDefKey"/>
+        <result column="ARMI_proc_inst_id" jdbcType="VARCHAR" property="procInstId"/>
+        <result column="ARMI_invoke_class" jdbcType="VARCHAR" property="invokeClass"/>
+        <result column="ARMI_invoke_method" jdbcType="VARCHAR" property="invokeMethod"/>
+        <result column="ARMI_child_proc_inst_id" jdbcType="VARCHAR" property="childProcInstId"/>
+    </resultMap>
+    <!-- 调用进度方法,主流程表字段 -->
+    <sql id="mainInvokeField">
+        ARMI.id AS ARMI_id
+        ,ARMI.task_def_key AS ARMI_task_def_key
+        ,ARMI.child_task_def_key AS ARMI_child_task_def_key
+        ,ARMI.proc_inst_id AS ARMI_proc_inst_id
+        ,ARMI.invoke_class AS ARMI_invoke_class
+        ,ARMI.invoke_method AS ARMI_invoke_method
+        ,ARMI.child_proc_inst_id AS ARMI_child_proc_inst_id
+    </sql>
+
+    <!-- 需要调用的方法集，子流程 -->
+    <select id="invokeChild" resultMap="ChildInvokeMap">
+        SELECT
+            <include refid="childInvokeField"/>
+        FROM
+            `ac_re_child_invoke` AS ARCI
+        WHERE
+            ARCI.proc_inst_id = #{procInstId}
+            AND ARCI.id >= ( SELECT id FROM ac_re_child_invoke WHERE task_def_key = #{taskDefKey} )
+        ORDER BY
+            ARCI.id desc
+    </select>
+
+    <!-- 获取 -->
+    <select id="invokeMain" resultMap="MainInvokeMap">
+        SELECT
+            <include refid="mainInvokeField"/>
+        FROM
+            ac_re_main_invoke ARMI
+        WHERE
+            ARMI.proc_inst_id = #{procInstId}
+            AND ARMI.id >= ( SELECT id FROM `ac_re_main_invoke` WHERE task_def_key = #{taskDefKey} ORDER BY id ASC LIMIT 1 )
+        ORDER BY
+            ARMI.id desc
+    </select>
+
+    <!-- 删除子流程调用过节点 -->
+    <delete id="delChildInvokeById" parameterType="java.lang.Long">
+        DELETE FROM ac_re_child_invoke
+        WHERE id = #{id}
+    </delete>
+
+    <!-- 删除主流程调用过节点 -->
+    <delete id="delMainInvokeById" parameterType="java.lang.Long">
+        DELETE FROM ac_re_main_invoke
+        WHERE id = #{id}
+    </delete>
+
+
+</mapper>

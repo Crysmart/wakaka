@@ -4,7 +4,6 @@ import com.wakaka.framework.spring4.aop.AopInterface;
 import com.wakaka.framework.spring4.aop.MainDemo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 

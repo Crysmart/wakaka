@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class AopClass implements AopInterface {
+    @Override
     public void aopMethod() {
         System.out.println("这是一个Aop method");
     }

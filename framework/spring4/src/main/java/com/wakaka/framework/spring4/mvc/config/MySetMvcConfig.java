@@ -7,6 +7,7 @@ import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration;
 
 /**
+ * 自定义DispatcherServlet初始化器
  * @author Crysmart
  * @date 2020/7/8 17:22
  */

@@ -9,6 +9,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  */
 public class MvcDemo  {
 
-    public static void main(@PathVariable String[] args) {
+    public static void main(String[] args) {
+
     }
 }

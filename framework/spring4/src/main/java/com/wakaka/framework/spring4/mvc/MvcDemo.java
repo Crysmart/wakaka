@@ -1,7 +1,6 @@
 package com.wakaka.framework.spring4.mvc;
 
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
  * @author Crysmart

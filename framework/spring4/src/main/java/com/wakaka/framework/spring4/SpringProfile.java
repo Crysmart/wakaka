@@ -1,10 +1,7 @@
 package com.wakaka.framework.spring4;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 
 /**
@@ -30,4 +27,14 @@ public class SpringProfile {
         //spring注解注入bean
         new AnnotationConfigApplicationContext(SpringProfile.class);
     }
+
+    /**
+     * 指定开发的模型
+     */
+    @Profile("dev")
+    @Bean
+    public void functionDev(){}
+    @Profile("prod")
+    @Bean
+    public void functionProd(){}
 }

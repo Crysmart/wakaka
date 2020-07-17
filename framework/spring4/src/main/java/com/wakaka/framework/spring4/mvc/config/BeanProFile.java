@@ -33,7 +33,7 @@ public class BeanProFile {
      * @throws IOException 抛出异常
      */
     @Bean
-    public MultipartResolver multipartResolverr(@RequestPart) throws IOException {
+    public MultipartResolver multipartResolverr() throws IOException {
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
         multipartResolver.setUploadTempDir(new FileSystemResource("/tmp/spittr/uploads"));//路径
         multipartResolver.setMaxUploadSize(2097152);//最大上传2MB

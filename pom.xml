@@ -12,6 +12,7 @@
 <!--        <module>design</module>-->
 <!--        <module>game</module>-->
         <module>framework</module>
+        <module>Web3J</module>
     </modules>
 
     <properties>

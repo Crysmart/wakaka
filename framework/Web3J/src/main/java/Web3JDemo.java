@@ -23,6 +23,7 @@ public class Web3JDemo {
     }
 
     public static void function() throws Exception {
+        //创建本地钱包
         String s = WalletUtils.generateNewWalletFile("123456", new File("D:/"));
         System.out.println(s);
     }

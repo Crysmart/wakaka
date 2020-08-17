@@ -1,6 +1,7 @@
 package com.service.demo.dao;
 
 import dao.entity.Dept;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 

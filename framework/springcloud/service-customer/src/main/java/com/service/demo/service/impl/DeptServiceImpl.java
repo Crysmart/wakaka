@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import javax.swing.*;
 import java.util.List;
 
 /**
@@ -31,8 +30,6 @@ public class DeptServiceImpl implements IDeptService {
 
     @Override
     public Dept findOne(Integer id) {
-        return restTemplate.getForObject(ROOT_CONTEXT+"/dept/findOne/"+id,Dept.class);
+        return restTemplate.getForObject(ROOT_CONTEXT + "/dept/findOne/" + id, Dept.class);
     }
-
-
 }

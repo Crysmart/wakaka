@@ -1,2 +1,16 @@
 server:
   port: 8081
+spring:
+  application:
+    name: service-customer
+info:
+  app:
+    name: service-customer
+    description: 这是描述 这是一个消费者
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7000/eureka
+  instance:
+    instance-id: service-customer:8081 #注册地址title
+    prefer-ip-address: true #鼠标放到注册地址上可以显示ip

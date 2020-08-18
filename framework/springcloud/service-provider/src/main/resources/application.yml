@@ -1,4 +1,8 @@
+server:
+  port: 8080
 spring:
+  application:
+    name: service-provider
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
@@ -7,3 +11,14 @@ spring:
 mybatis:
   mapper-locations:
     - classpath:com/service/demo/dao/*Mapper.xml
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7000/eureka
+  instance:
+    instance-id: service-provider:8080 #注册地址title
+    prefer-ip-address: true #鼠标放到注册地址上可以显示ip
+info:
+  app:
+    name: service-provider
+    description: 这是描述 这是个提供者

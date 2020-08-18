@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2020/8/17 16:42
  */
 @SpringBootApplication
+@MapperScan("com.service.demo.dao")
 public class ServiceProviderApplication {
 
     public static void main(String[] args) {

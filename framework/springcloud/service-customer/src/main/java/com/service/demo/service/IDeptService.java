@@ -1,4 +1,4 @@
-package com.service.demo.dao;
+package com.service.demo.service;
 
 import dao.entity.Dept;
 
@@ -6,9 +6,9 @@ import java.util.List;
 
 /**
  * @author Crysmart
- * @date 2020/8/17 17:06
+ * @date 2020/8/18 11:59
  */
-public interface DeptMapper {
+public interface IDeptService {
     List<Dept> getList();
     Dept findOne(Integer id);
 }

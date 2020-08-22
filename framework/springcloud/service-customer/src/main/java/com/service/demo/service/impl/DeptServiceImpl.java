@@ -15,7 +15,8 @@ import java.util.List;
 @Service
 public class DeptServiceImpl implements IDeptService {
 
-    private final static String ROOT_CONTEXT = "http://localhost:8080";
+    //private final static String ROOT_CONTEXT = "http://localhost:8080";
+    private final static String ROOT_CONTEXT = "http://SERVICE-PROVIDER";
 
     RestTemplate restTemplate;
 

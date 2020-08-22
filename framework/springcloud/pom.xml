@@ -11,7 +11,16 @@
 
     <artifactId>springcloud</artifactId>
     <packaging>pom</packaging>
-
+    <modules>
+        <module>service-api</module>
+        <module>service-customer</module>
+        <module>service-eureka</module>
+        <module>service-eureka-secondary1</module>
+        <module>service-eureka-secondary2</module>
+        <module>service-provider</module>
+        <module>service-provider2</module>
+        <module>service-provider3</module>
+    </modules>
     <properties>
         <junit.version>4.12</junit.version>
     </properties>
@@ -52,7 +61,5 @@
     </dependencyManagement>
 
 
-    <modules>
-        <module>service-api</module>
-    </modules>
+
 </project>

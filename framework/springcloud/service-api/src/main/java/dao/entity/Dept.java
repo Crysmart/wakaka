@@ -10,6 +10,7 @@ public class Dept implements Serializable {
     private Integer id;
     private String deptName;
     private String deptManager;
+    private String microName;
 
     public Integer getId() {
         return id;
@@ -35,12 +36,21 @@ public class Dept implements Serializable {
         this.deptManager = deptManager;
     }
 
+    public String getMicroName() {
+        return microName;
+    }
+
+    public void setMicroName(String microName) {
+        this.microName = microName;
+    }
+
     @Override
     public String toString() {
         return "Dept{" +
                 "id=" + id +
                 ", deptName='" + deptName + '\'' +
                 ", deptManager='" + deptManager + '\'' +
+                ", microName='" + microName + '\'' +
                 '}';
     }
 }

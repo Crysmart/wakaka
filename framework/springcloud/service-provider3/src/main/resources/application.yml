@@ -1,0 +1,24 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: service-provider
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/testdb3
+mybatis:
+  mapper-locations:
+    - classpath:com/service/demo/dao/*Mapper.xml
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server1:7000/eureka/,http://eureka-server2:7001/eureka/,http://eureka-server3:7002/eureka/
+  instance:
+    instance-id: service-provider:8083 #注册地址title
+    prefer-ip-address: true #鼠标放到注册地址上可以显示ip
+info:
+  app:
+    name: service-provider3
+    description: 这是描述 这是个提供者

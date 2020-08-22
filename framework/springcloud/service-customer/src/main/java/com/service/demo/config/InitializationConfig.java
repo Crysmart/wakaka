@@ -1,5 +1,6 @@
 package com.service.demo.config;
 
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
@@ -12,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 public class InitializationConfig {
 
     @Bean
+    @LoadBalanced//开启Ribbon负载均衡
     public RestTemplate InitRestTemplate(){
         return new RestTemplate();
     }

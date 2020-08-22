@@ -1,0 +1,11 @@
+server:
+  port: 7002
+eureka:
+  instance:
+    hostname: eureka-server3
+  client:
+    fetch-registry: true
+    register-with-eureka: false #是否注册自己
+    service-url:
+      # defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #访问地址与注册地址
+      defaultZone: http://eureka-server1:7000/eureka/,http://eureka-server2:7001/eureka/ #访问地址与注册地址

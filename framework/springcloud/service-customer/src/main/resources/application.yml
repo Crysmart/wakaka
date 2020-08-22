@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8080
 spring:
   application:
     name: service-customer
@@ -10,7 +10,9 @@ info:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:7000/eureka
+      # defaultZone: http://eureka-server1:7000/eureka/ 单机
+      # 集群
+      defaultZone: http://eureka-server1:7000/eureka/,http://eureka-server2:7001/eureka/,http://eureka-server3:7002/eureka/
   instance:
     instance-id: service-customer:8081 #注册地址title
     prefer-ip-address: true #鼠标放到注册地址上可以显示ip

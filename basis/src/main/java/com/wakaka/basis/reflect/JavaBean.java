@@ -9,10 +9,10 @@ import java.util.Date;
  * @date Created in 15:33 2020/5/5
  */
 public class JavaBean {
-    private String username;
-    private String password;
-    private Integer age;
-    private Date birthday;
+    private String username="username";
+    private String password="password";
+    private Integer age=11;
+    private Date birthday=new Date();
 
     public String getUsername() {
         return username;

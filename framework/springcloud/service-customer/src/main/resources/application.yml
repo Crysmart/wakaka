@@ -14,5 +14,5 @@ eureka:
       # 集群
       defaultZone: http://eureka-server1:7000/eureka/,http://eureka-server2:7001/eureka/,http://eureka-server3:7002/eureka/
   instance:
-    instance-id: service-customer:8081 #注册地址title
+    instance-id: service-customer:8080 #注册地址title
     prefer-ip-address: true #鼠标放到注册地址上可以显示ip

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.service.demo.dao.DeptMapper">
+    <resultMap id="BaseResultMap" type="dao.entity.Dept">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="dept_name" jdbcType="VARCHAR" property="deptName"/>
+        <result column="dept_manager" jdbcType="VARCHAR" property="deptManager"/>
+        <result column="micro_name" jdbcType="VARCHAR" property="microName"/>
+    </resultMap>
+    <select id="getList" resultMap="BaseResultMap">
+        select * from dept
+    </select>
+    <select id="findOne" parameterType="Integer" resultMap="BaseResultMap">
+        select * from dept where id = #{id}
+    </select>
+</mapper>

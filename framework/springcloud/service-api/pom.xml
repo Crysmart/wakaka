@@ -12,6 +12,7 @@
     <artifactId>service-api</artifactId>
 
     <dependencies>
+        <!-- 提供feign接口rest -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-feign</artifactId>

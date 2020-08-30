@@ -23,6 +23,11 @@
             <artifactId>service-api</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <!--feign 接口rest-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+        </dependency>
         <!--ribbon负载均衡-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

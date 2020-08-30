@@ -13,7 +13,7 @@ import java.util.List;
  * @author Crysmart
  * @date 2020/8/23 16:39
  */
-@FeignClient(name = "SERVICE-PROVIDER")
+@FeignClient(name = "SERVICE-PROVIDER")//为name注册当前服务
 @RequestMapping("/dept")
 public interface DeptClientService {
 
@@ -21,5 +21,5 @@ public interface DeptClientService {
     List<Dept> getList();
 
     @RequestMapping(value = "/findOne/{id}",method = RequestMethod.GET)
-    Dept getList(@PathVariable Integer id);
+    Dept getList(@PathVariable(value = "id") Integer id);
 }

@@ -21,6 +21,7 @@
         <module>service-provider</module>
         <module>service-provider2</module>
         <module>service-provider3</module>
+<!--        <module>service-provider-hystrix</module>-->
     </modules>
     <properties>
         <junit.version>4.12</junit.version>

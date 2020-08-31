@@ -15,8 +15,9 @@
 <!--        <module>Web3J</module>-->
 <!--        <module>spring4</module>-->
 <!--        <module>Jwt</module>-->
-        <module>springcloud</module>
-<!--        <module>flowable6-parent</module>-->
+<!--        <module>springcloud</module>-->
+        <module>kafka</module>
+        <!--        <module>flowable6-parent</module>-->
     </modules>
 
 

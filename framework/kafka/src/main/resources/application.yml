@@ -1,0 +1,11 @@
+spring:
+  kafka:
+    producer:
+      bootstrap-servers: 172.16.3.208:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      bootstrap-servers: 172.16.3.208:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: axc

@@ -8,7 +8,7 @@
         <version>0.0.1</version>
     </parent>
     <groupId>com.service.demo</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>${project.name}</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>service-customer</name>
     <description>Demo project for Spring Boot</description>

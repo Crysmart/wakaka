@@ -1,5 +1,10 @@
 package com.wakaka.basis.array;
 
+import com.wakaka.basis.reflect.JavaBean;
+
+import java.text.NumberFormat;
+import java.util.Date;
+
 /**
  * 数组相关
  *
@@ -25,5 +30,4 @@ public class Arrays {
         }
         return ints;
     }
-
 }

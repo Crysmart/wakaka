@@ -8,9 +8,9 @@
         <version>0.0.1</version>
     </parent>
     <groupId>com.service.demo</groupId>
-    <artifactId>service-provider</artifactId>
+    <artifactId>${project.name}</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>service-provider</name>
+    <name>service-customer-feign</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -23,28 +23,29 @@
             <artifactId>service-api</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <!--  hystrix 熔断降级-->
+        <!--feign 接口rest-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-hystrix</artifactId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
         </dependency>
-        <!--eureka客户端 start-->
+        <!--ribbon负载均衡-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-ribbon</artifactId>
+        </dependency>
+        <!--eureka客户端（注册发现）-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
+        <!--springCloud配置依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
-        <!--eureka客户端 end-->
         <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -75,20 +76,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>${basedir}/src/main/resources</directory>
-                <excludes>
-                    <exclude>/**</exclude>
-                </excludes>
-            </resource>
-        </resources>
     </build>
 
 </project>

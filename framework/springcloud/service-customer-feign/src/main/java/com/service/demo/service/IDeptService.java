@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @author Crysmart
- * @date 2020/8/17 17:34
+ * @date 2020/8/18 11:59
  */
 public interface IDeptService {
     List<Dept> getList();

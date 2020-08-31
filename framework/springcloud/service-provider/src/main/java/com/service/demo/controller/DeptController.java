@@ -26,7 +26,6 @@ public class DeptController {
 
     @RequestMapping(value = "/getList",method = RequestMethod.GET)
     public List<Dept> getList(){
-
         return iDeptService.getList();
     }
 

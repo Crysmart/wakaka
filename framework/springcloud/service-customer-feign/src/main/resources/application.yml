@@ -3,6 +3,9 @@ server:
 spring:
   application:
     name: service-customer
+feign:
+  hystrix:
+    enabled: true
 info:
   app:
     name: service-customer

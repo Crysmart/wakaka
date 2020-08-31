@@ -7,7 +7,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
-    url: jdbc:mysql://172.17.6.124:3306/testdb
+    url: jdbc:mysql://172.17.6.123:3306/testdb
     schema:
       - classpath:/sql/default-schema.sql
 mybatis:

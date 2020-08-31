@@ -13,7 +13,7 @@ import java.util.List;
  * @author Crysmart
  * @date 2020/8/23 16:39
  */
-@FeignClient(name = "SERVICE-PROVIDER")//为name注册当前服务
+@FeignClient(name = "SERVICE-PROVIDER",fallbackFactory = DeptClientServiceFallbackFactory.class)//为name注册当前服务
 @RequestMapping("/dept")
 public interface DeptClientService {
 

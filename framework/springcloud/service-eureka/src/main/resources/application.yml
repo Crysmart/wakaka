@@ -9,4 +9,4 @@ eureka:
     service-url:
       # 单机： defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #访问地址与注册地址
       # 集群： 需要修改 hosts 映射 hostname
-      defaultZone: http://eureka-server2:7001/eureka/,http://eureka-server3:7002/eureka/
+      defaultZone: http://eureka-server2:7001/eureka/,http://eureka-server3:7002/eureka/s

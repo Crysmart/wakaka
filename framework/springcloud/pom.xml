@@ -22,6 +22,7 @@
         <module>service-provider2</module>
         <module>service-provider3</module>
         <module>service-customer-hystrix-dashboard</module>
+        <module>service-zuul</module>
         <!--        <module>service-provider-hystrix</module>-->
     </modules>
     <properties>

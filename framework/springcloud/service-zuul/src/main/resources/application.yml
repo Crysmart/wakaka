@@ -15,6 +15,7 @@ eureka:
 
 zuul:
   routes:
+    # 将 真实实例隐藏，暴露虚假的实例地址
     myserver.serviceId: SERVICE-PROVIDER #使用eureka中注册的服务提供者的实例名称
     myserver.path: /serviceprovider/** #添加服务使用前缀 如 localhost:8080/serviceprovider/接口地址
     #服务忽略：将原有真实地址忽略后则不能访问【404】

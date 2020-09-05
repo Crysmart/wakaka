@@ -8,15 +8,19 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+      defaultZone: http://eureka-server1:7000/eureka/,http://eureka-server2:7001/eureka/,http://eureka-server3:7002/eureka/
   instance:
     instance-id: server-zuul:7777
     prefer-ip-address: true
 
 zuul:
   routes:
-    mydept.serviceId: SERVICE-PROVIDER
-    mydept.path: /serviceprovider/**
+    myserver.serviceId: SERVICE-PROVIDER #使用eureka中注册的服务提供者的实例名称
+    myserver.path: /serviceprovider/** #添加服务使用前缀 如 localhost:8080/serviceprovider/接口地址
+    #服务忽略：将原有真实地址忽略后则不能访问【404】
+  #ignored-services: SERVICE-PROVIDER # 对SERVICE-PROVIDER服务进行忽略
+  ignored-services: "*" #忽略所有原真实服务地址
+  prefix: /prefixx #添加路由前缀 访问路径变更 【ip:port/prefixx/serviceprovider/接口地址】
 
 info:
   app:

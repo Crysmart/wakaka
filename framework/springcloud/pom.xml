@@ -23,7 +23,8 @@
         <module>service-provider3</module>
         <module>service-customer-hystrix-dashboard</module>
         <module>service-zuul</module>
-        <!--        <module>service-provider-hystrix</module>-->
+        <module>service-config</module>
+        <module>service-config-client</module>
     </modules>
     <properties>
         <junit.version>4.12</junit.version>

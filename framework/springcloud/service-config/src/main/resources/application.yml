@@ -1,0 +1,10 @@
+server:
+  port: 3333
+spring:
+  application:
+    name: server-config
+  cloud:
+    config:
+      server:
+        git: #仓库的地址
+          uri: https://github.com/Crysmart/springcloudconfigtest.git

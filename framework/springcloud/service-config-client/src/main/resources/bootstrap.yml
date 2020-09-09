@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    config:
+      # github资源名称
+      name: application-config-client.yml
+      # 使用环境
+      profile: dev
+      # 使用分支
+      label: master
+      # 寻找服务的地址 寻找的是config服务端
+      uri: http://localhost:3333

@@ -2,7 +2,7 @@ spring:
   cloud:
     config:
       # github资源名称
-      name: application-config-client.yml
+      name: application-config-client
       # 使用环境
       profile: dev
       # 使用分支

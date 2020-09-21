@@ -16,7 +16,8 @@
 <!--        <module>spring4</module>-->
 <!--        <module>Jwt</module>-->
         <module>springcloud</module>
-<!--        <module>kafka</module>-->
+        <module>springcloud-alibaba</module>
+        <!--        <module>kafka</module>-->
         <!--        <module>flowable6-parent</module>-->
     </modules>
 

@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: server-nacos-prefix
+  cloud:
+    nacos:
+      config:
+        server-addr: 172.16.3.16:8848
+        file-extension: tail

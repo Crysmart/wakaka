@@ -12,19 +12,19 @@
     <artifactId>springcloud</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>service-api</module>
-        <module>service-customer</module>
-        <module>service-customer-feign</module>
-        <module>service-eureka</module>
-        <module>service-eureka-secondary1</module>
-        <module>service-eureka-secondary2</module>
-        <module>service-provider</module>
-        <module>service-provider2</module>
-        <module>service-provider3</module>
-        <module>service-customer-hystrix-dashboard</module>
-        <module>service-zuul</module>
-        <module>service-config</module>
-        <module>service-config-client</module>
+<!--        <module>service-api</module>-->
+<!--        <module>service-customer</module>-->
+<!--        <module>service-customer-feign</module>-->
+<!--        <module>service-eureka</module>-->
+<!--        <module>service-eureka-secondary1</module>-->
+<!--        <module>service-eureka-secondary2</module>-->
+<!--        <module>service-provider</module>-->
+<!--        <module>service-provider2</module>-->
+<!--        <module>service-provider3</module>-->
+<!--        <module>service-customer-hystrix-dashboard</module>-->
+<!--        <module>service-zuul</module>-->
+<!--        <module>service-config</module>-->
+<!--        <module>service-config-client</module>-->
     </modules>
     <properties>
         <junit.version>4.12</junit.version>

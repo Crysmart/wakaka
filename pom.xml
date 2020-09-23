@@ -12,7 +12,6 @@
 <!--        <module>design</module>-->
 <!--        <module>game</module>-->
         <module>framework</module>
-        <module>service-config</module>
     </modules>
 
     <properties>

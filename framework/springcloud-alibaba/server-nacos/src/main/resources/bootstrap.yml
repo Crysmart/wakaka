@@ -4,6 +4,19 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 127.0.0.1:8848
+        # server-addr: 127.0.0.1:8848 #单机配置
+        server-addr: 127.0.0.1:8848,127.0.0.1:8849,127.0.0.1:8850 #集群配置
         file-extension: yml
         namespace: bc8f6500-589a-4a46-a579-a5880a383300
+        # 使用多个组中的配置文件
+#        extension-configs:
+#          - data-id: test.yml
+#            group: DEFAULT_GROUP
+#            refresh: true # 支持动态获取
+        # 或者使用分享方式
+        shared-configs:
+          - data-id: test.yml
+            group: DEFAULT_GROUP
+            refresh: true # 支持动态获取
+        # 启用还是关闭配置
+        enabled: false

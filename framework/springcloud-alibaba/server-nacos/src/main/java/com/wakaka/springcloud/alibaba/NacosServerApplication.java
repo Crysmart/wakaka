@@ -20,8 +20,7 @@ import java.util.concurrent.Executor;
 @SpringBootApplication
 public class NacosServerApplication {
     public static void main(String[] args) throws Exception {
-        //SpringApplication.run(NacosServerApplication.class,args);
-        withListener();
+        SpringApplication.run(NacosServerApplication.class,args);
     }
 
     @Bean

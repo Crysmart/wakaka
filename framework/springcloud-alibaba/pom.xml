@@ -13,6 +13,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>server-nacos</module>
+        <module>server-provider</module>
+        <module>server-customer</module>
     </modules>
 
     <dependencyManagement>
@@ -28,6 +30,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>2.2.3.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR5</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

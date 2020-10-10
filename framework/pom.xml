@@ -19,7 +19,6 @@
         <module>springcloud-alibaba</module>
         <!--        <module>kafka</module>-->
         <!--        <module>flowable6-parent</module>-->
-        <module>springcloud_alibaba</module>
     </modules>
 
 

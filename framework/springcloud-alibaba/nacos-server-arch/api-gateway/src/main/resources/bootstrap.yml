@@ -10,12 +10,15 @@ spring:
         namespace: 9a1a8366-044b-47a6-a188-6d37d7690124
         cluster-name: DEFAULT
       config:
+        # 定位需要使用的配置文件
         server-addr: 127.0.0.1:8848
-        file-extension: yaml
-zuul:
-  routes:
-    # 将 真实实例隐藏，暴露虚假的实例地址
-    application-invoke:
-      #serviceId: application-invoke
-
-      path: /applicationinvoke/**
+        file-extension: yaml # 文件后缀
+        group: ZUUL_MICRO_GROUP # 配置中心的业务组
+        namespace: 9a1a8366-044b-47a6-a188-6d37d7690124 # 配置中心的命名空间
+#本地配置文件
+#zuul:
+#  routes:
+#    # 将 真实实例隐藏，暴露虚假的实例地址
+#    application-invoke:
+#      #serviceId: application-invoke
+#      path: /applicationinvoke/**

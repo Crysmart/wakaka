@@ -10,8 +10,8 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
  * @date 2020/10/23 15:52
  */
 @SpringBootApplication
-@EnableDiscoveryClient
-@EnableZuulProxy
+@EnableDiscoveryClient//请求负载均衡
+@EnableZuulProxy//网关代理
 public class GatewayApplication {
     public static void main(String[] args) {
         SpringApplication.run(GatewayApplication.class,args);

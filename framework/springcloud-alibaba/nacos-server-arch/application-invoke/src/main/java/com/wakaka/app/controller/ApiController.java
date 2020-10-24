@@ -2,7 +2,6 @@ package com.wakaka.app.controller;
 
 import com.wakaka.server1.service.IService1Service;
 import com.wakaka.server2.service.IService2Service;
-import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ApiController {
 
-    @Reference
+    @org.apache.dubbo.config.annotation.Reference
     IService1Service iService1Service;
-    @Reference
+    @org.apache.dubbo.config.annotation.Reference
     IService2Service iService2Service;
 
     @RequestMapping("/getAll")
@@ -28,5 +27,6 @@ public class ApiController {
         sb.append(server1);
         sb.append(server2);
         return sb.toString();
+        //return iService2Service.getServer();
     }
 }

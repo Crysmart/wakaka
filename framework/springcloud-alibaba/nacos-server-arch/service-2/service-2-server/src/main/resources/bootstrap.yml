@@ -18,7 +18,7 @@ dubbo:
     base-packages: com.wakaka.server2.server
   protocol:
     name: dubbo # dubbo协议 -1 表示自增端口
-    port: ${dubbo_port:-1} # dubbo端口
+    port: ${dubbo_port:20882} # dubbo端口
   registry:
     address: nacos://127.0.0.1:8848
   application:

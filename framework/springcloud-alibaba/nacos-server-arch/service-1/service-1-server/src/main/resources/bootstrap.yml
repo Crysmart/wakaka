@@ -1,5 +1,5 @@
 server:
-  port: ${prot:30001}
+  port: ${prot:3001}
 spring:
   application:
     name: service-1-server

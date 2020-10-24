@@ -1,6 +1,12 @@
 package com.wakaka.server2.server;
 
+import com.alibaba.fastjson.JSONObject;
+import com.wakaka.server2.entity.DbServer;
+import com.wakaka.server2.mapper.DbServerMapper;
 import com.wakaka.server2.service.IService2Service;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author Crysmart
@@ -8,8 +14,12 @@ import com.wakaka.server2.service.IService2Service;
  */
 @org.apache.dubbo.config.annotation.Service
 public class Service2ServiceImpl implements IService2Service {
+    @Resource
+    DbServerMapper dbServerMapper;
+
     @Override
     public String getServer() {
-        return "getServer2222222";
+        List<DbServer> dbServers = dbServerMapper.selectList(null);
+        return JSONObject.toJSONString(dbServers);
     }
 }

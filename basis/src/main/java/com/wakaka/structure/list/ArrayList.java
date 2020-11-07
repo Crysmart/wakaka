@@ -1,7 +1,5 @@
 package com.wakaka.structure.list;
 
-import java.util.Arrays;
-
 /**
  * 动态数组集合
  * @author Crysmart

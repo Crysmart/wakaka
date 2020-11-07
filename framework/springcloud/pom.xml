@@ -27,7 +27,7 @@
 <!--        <module>service-config-client</module>-->
     </modules>
     <properties>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
     </properties>
 
     <dependencyManagement>

@@ -26,7 +26,7 @@ public interface List{
 
     /**
      * 指定位置元素
-     * @param o
+     * @param index
      * @return
      */
     boolean remove(int index);

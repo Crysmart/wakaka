@@ -1,28 +1,23 @@
 package com.wakaka.structure.list;
 
-import com.wakaka.structure.entity.User;
-
 /**
- * 动态数组集合
+ * 动态int数组集合
  * @author Crysmart
- * @date 2020/11/8 16:24
+ * @date 2020/11/7 22:01
  */
-public class ArrayList<E> implements List<E>{
-
+public class ArrayIntList{
     /**
      * 数组元素量
      */
     private int size = 0;
-
     /**
      * 默认容量
      */
     private final int DEFAULT_CAPACITY = 10;
-
     /**
      * 初始数组
      */
-    private Object[] array = new Object[DEFAULT_CAPACITY];
+    private int[] array = new int[DEFAULT_CAPACITY];
 
     /**
      * 数组越界检查
@@ -48,7 +43,7 @@ public class ArrayList<E> implements List<E>{
     void isCapacity(){
         if (size + 1 == array.length){
             //扩容
-            Object[] newArray = new Object[array.length + (array.length >> 1)];
+            int[] newArray = new int[array.length + (array.length >> 1)];
             System.out.println("扩容："+ newArray.length);
             for (int i = 0; i < array.length; i++) {
                 newArray[i] = array[i];
@@ -66,58 +61,64 @@ public class ArrayList<E> implements List<E>{
         return "Index: " + index + ", size: " + size;
     }
 
+    /**
+     * 内部方法测试类
+     */
     public static class ArrayListTest {
         public static void main(String[] args) {
-            ArrayList<User> users = new ArrayList<>();
-            users.add(new User("111","aaa"));
-            users.add(new User("222","bbb"));
-            users.add(new User("333","ccc"));
-            users.add(new User("444","ddd"));
-            System.out.println(users.get(0));
+            ArrayIntList list = new ArrayIntList();
+            for (int i = 0; i < 50; i++) {
+                list.add(i);
+                list.set(i,i);
+            }
+            System.out.println(list.toString());
+            list.clear();
+            list.add(10);
+            list.add(20);
+            list.add(30);
+            list.remove(0);
+            System.out.println("list.toString()="+list.toString());
+            System.out.println("list.isEmpty()="+list.isEmpty());
+            System.out.println("list.size()="+list.size());
+            System.out.println("list.get(list.size())="+list.get(list.size()-1));
 
         }
     }
 
-    @Override
     public int size() {
         return size;
     }
 
-    @Override
     public boolean isEmpty() {
         return size == 0;
     }
 
-    @Override
-    public boolean add(E e) {
+    public boolean add(int e) {
         isCapacity();
         array[size++] = e;
         return true;
     }
 
-    @Override
-    public E remove(int index) {
+    public boolean remove(int index) {
         checkArrayRange(index);
-        Object old = array[index];
+        //未处理大于size的值
         for (int i = index; i <= size - 1; i++){
             array[i] = array[i + 1];
         }
         size--;
-        return (E) old;
+        return true;
     }
 
-    @Override
     public void clear() {
         size = 0;
     }
 
-    @Override
-    public E get(int index) {
-        return (E) array[index];
+    public int get(int index) {
+        checkRange(index);
+        return array[index];
     }
 
-    @Override
-    public boolean set(int index, E element) {
+    public int set(int index, int element) {
         checkArrayRange(index);
         for (int i = size; i >= index ; i--){
             isCapacity();
@@ -125,7 +126,7 @@ public class ArrayList<E> implements List<E>{
         }
         array[index] = element;
         size++;
-        return true;
+        return 0;
     }
 
     @Override

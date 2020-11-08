@@ -4,7 +4,7 @@ package com.wakaka.structure.list;
  * @author Crysmart
  * @date 2020/11/7 22:02
  */
-public interface List{
+public interface List<E>{
     /**
      * 数组大小
      * @return
@@ -22,14 +22,14 @@ public interface List{
      * @param e
      * @return
      */
-    boolean add(int e);
+    boolean add(E e);
 
     /**
      * 指定位置元素
      * @param index
      * @return
      */
-    boolean remove(int index);
+    E remove(int index);
 
 
     /**
@@ -42,7 +42,7 @@ public interface List{
      * @param index
      * @return
      */
-    int get(int index);
+    E get(int index);
 
     /**
      * 指定位置设置元素
@@ -50,6 +50,6 @@ public interface List{
      * @param element
      * @return
      */
-    int set(int index, int element);
+    boolean set(int index, E element);
 
 }

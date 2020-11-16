@@ -108,7 +108,11 @@ public class ArrayList<E> implements List<E>{
 
     @Override
     public void clear() {
+        int clearSize = size;
         size = 0;
+        for (int i = 0; i < clearSize; i++) {
+            array[i] = null;
+        }
     }
 
     @Override

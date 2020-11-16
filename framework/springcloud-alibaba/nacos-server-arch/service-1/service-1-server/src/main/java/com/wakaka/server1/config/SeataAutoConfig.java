@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 import io.seata.spring.annotation.GlobalTransactionScanner;
 
-@Configuration
+
 public class SeataAutoConfig {
     private final static Logger logger = LoggerFactory.getLogger(SeataAutoConfig.class);
 
@@ -16,7 +16,7 @@ public class SeataAutoConfig {
      *
      * @Return: GlobalTransactionScanner
      */
-    @Bean
+
     public GlobalTransactionScanner globalTransactionScanner() {
         logger.info("配置seata........");
         return new GlobalTransactionScanner("service-1-server", "my_test_tx_group");

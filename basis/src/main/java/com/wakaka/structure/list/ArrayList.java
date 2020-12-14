@@ -15,14 +15,19 @@ public class ArrayList<E> implements List<E>{
     private int size = 0;
 
     /**
-     * 默认容量
-     */
-    private final int DEFAULT_CAPACITY = 10;
-
-    /**
      * 初始数组
      */
-    private Object[] array = new Object[DEFAULT_CAPACITY];
+    private Object[] array = {};
+
+    public ArrayList(int initCapacity) {
+        array = new Object[initCapacity];
+    }
+
+    public ArrayList() {
+        //默认容量
+        final int default_capacity = 10;
+        array = new Object[default_capacity];
+    }
 
     /**
      * 数组越界检查
@@ -68,13 +73,12 @@ public class ArrayList<E> implements List<E>{
 
     public static class ArrayListTest {
         public static void main(String[] args) {
-            ArrayList<User> users = new ArrayList<>();
+            ArrayList<User> users = new ArrayList<>(20);
             users.add(new User("111","aaa"));
             users.add(new User("222","bbb"));
             users.add(new User("333","ccc"));
             users.add(new User("444","ddd"));
             System.out.println(users.get(0));
-
         }
     }
 

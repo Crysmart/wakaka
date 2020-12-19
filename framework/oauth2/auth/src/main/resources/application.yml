@@ -2,5 +2,5 @@ spring:
   datasource:
     url: jdbc:mysql://192.168.6.192:3306/test?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
     username: root
-    password: Lsxddb123.
+    password:
     driver-class-name: com.mysql.jdbc.Driver

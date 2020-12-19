@@ -4,8 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>springcloud</artifactId>
-        <groupId>org.wakaka</groupId>
-        <version>0.0.1</version>
+        <groupId>springcloud</groupId>
+        <version>1.0.0</version>
     </parent>
     <groupId>com.service.demo</groupId>
     <artifactId>${project.name}</artifactId>
@@ -19,7 +19,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.wakaka</groupId>
+            <groupId>springcloud</groupId>
             <artifactId>service-api</artifactId>
             <version>${project.version}</version>
         </dependency>

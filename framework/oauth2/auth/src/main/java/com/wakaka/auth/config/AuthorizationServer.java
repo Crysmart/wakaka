@@ -80,7 +80,7 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception{
-        String secret = passwordEncoder.encode("secret");
+        //String secret = passwordEncoder.encode("secret");
         clients.withClientDetails(clientDetailsService());
 //        clients.inMemory()
 //                //client_id

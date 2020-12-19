@@ -1,9 +1,7 @@
 package com.wakaka.res.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
-import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
+
 
 /**
  * 资源服务令牌解析配置

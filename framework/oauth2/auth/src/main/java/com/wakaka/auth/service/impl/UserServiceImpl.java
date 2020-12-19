@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //查询用户
         String user = "admin";
-        String password = passwordEncoder.encode("123");
+        String password = passwordEncoder.encode("1234");
         boolean b = ObjectUtils.isEmpty(user);
         if (b){
             //如果用户不存在则抛出null，交由security provider进行异常抛出

@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://172.17.210.147:3306/lsxd_recharge_mall?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://172.18.113.155:3306/lsxd_recharge_mall?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver

@@ -49,6 +49,8 @@ import java.util.Arrays;
  *
  *
  * 账号密码模式通常第一方使用，充分信任client，通过账密生成access_token
+ * response_type=code，授权码模式默认为password
+ * http://localhost:8080/oauth/token?grant_type=password&scope=all&username=?&password=?
  * 客户端模式，对客户端完全信任，不需要账号密码直接获取access_token
  * 简化模式，单页面应用，通过url传递access_token
  *

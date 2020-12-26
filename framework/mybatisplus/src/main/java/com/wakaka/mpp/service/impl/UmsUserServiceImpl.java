@@ -3,7 +3,6 @@ package com.wakaka.mpp.service.impl;
 import com.wakaka.mpp.mapper.UmsUserMapper;
 import com.wakaka.mpp.service.IUmsUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -17,7 +16,7 @@ import java.util.List;
 public class UmsUserServiceImpl implements IUmsUserService {
     @Autowired
     UmsUserMapper umsUserMapper;
-
+    
     @Override
     public void get() {
         List<UmsUserMapper> umsUserMappers = umsUserMapper.selectBatchIds(Arrays.asList(1, 2));

@@ -1,6 +1,7 @@
 package com.wakaka.auth.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,7 +11,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
-import org.springframework.security.oauth2.provider.ClientDetailsService;
+import org.springframework.security.oauth2.provider.*;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
@@ -75,6 +76,10 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
     JwtAccessTokenConverter accessTokenConverter;
     @Autowired
     DataSource dataSource;
+    @Autowired
+    TokenGranter tokenGranter;
+    @Autowired
+    DefaultTokenServices defaultTokenServices;
 
 
     /**
@@ -112,15 +117,14 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
                 //授权码服务
                 .authorizationCodeServices(authorizationCodeServices)
                 //令牌管理服务
-                .tokenServices(tokenService())
+                .tokenServices(defaultTokenServices)
+                //默认模式+自定义模式
+                .tokenGranter(tokenGranter)
                 .allowedTokenEndpointRequestMethods(HttpMethod.POST);
     }
 
-    /**
-     * 令牌管理服务
-     * @return
-     */
-    public AuthorizationServerTokenServices tokenService(){
+    @Bean
+    public DefaultTokenServices getDefaultTokenServices(){
         DefaultTokenServices services = new DefaultTokenServices();
         //客户端详情服务，要知道是什么客户端访问
         services.setClientDetailsService(clientDetailsService());
@@ -164,4 +168,6 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
         jdbcClientDetailsService.setPasswordEncoder(passwordEncoder);
         return jdbcClientDetailsService;
     }
+
+
 }

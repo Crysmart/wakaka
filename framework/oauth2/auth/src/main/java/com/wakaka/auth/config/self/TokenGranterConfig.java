@@ -56,7 +56,7 @@ public class TokenGranterConfig {
             tokenGranters.add(new ResourceOwnerPasswordTokenGranter(authenticationManager, tokenServices,
                     clientDetails, requestFactory));
         }
-        //自定义
+        //自定义 钉钉认证
         tokenGranters.add(new DingTalkTokenGranter(tokenServices, clientDetails, requestFactory));
         return tokenGranters;
     }

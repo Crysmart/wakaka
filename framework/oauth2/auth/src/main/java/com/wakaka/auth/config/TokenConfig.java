@@ -2,6 +2,7 @@ package com.wakaka.auth.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
@@ -60,4 +61,5 @@ public class TokenConfig {
     public AuthorizationCodeServices authorizationCodeServices(DataSource dataSource){
         return new JdbcAuthorizationCodeServices(dataSource);
     }
+
 }

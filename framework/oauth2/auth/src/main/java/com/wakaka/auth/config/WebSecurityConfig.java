@@ -1,5 +1,6 @@
 package com.wakaka.auth.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,6 +17,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 //@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
     /**
      * 定义用户信息服务
      * @return
@@ -26,6 +31,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
 //        manager.createUser(User.withUsername("aadd").password("123").authorities("p1").build());
 //        return manager;
+//    }
+
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.authenticationProvider(daoAuthenticationProvider())
+//                .authenticationProvider(dingTalkAuthenticationProvider);
 //    }
 
     /**
@@ -72,4 +83,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
+
 }

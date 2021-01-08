@@ -16,8 +16,8 @@ import org.springframework.util.ObjectUtils;
 @Service
 public class UserServiceImpl implements UserDetailsService {
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
+//    @Autowired
+//    PasswordEncoder passwordEncoder;
     /**
      * 查找用户，加入用户池登录成功
      * @param username
@@ -28,14 +28,13 @@ public class UserServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //查询用户
         String user = "admin";
-        String password = passwordEncoder.encode("1234");
         boolean b = ObjectUtils.isEmpty(user);
         if (b){
             //如果用户不存在则抛出null，交由security provider进行异常抛出
             return null;
         }
         //查询出创建用户加载security中
-        UserDetails userDetails = User.withUsername(user).password(password)
+        UserDetails userDetails = User.withUsername(user).password("$2a$10$ygUS3bK70fe2l.cDVi0oauoLVZG/XIqew8JmMNiaZyqbPW/pos5Si")
                 //访问资源权限
                 .authorities("1").build();
         return userDetails;

@@ -20,4 +20,7 @@ public class CustomerController {
     public String getFeign(){
         return providerClient.getServer() + "gettetetet";
     }
+
+    public static void main(String[] args) {
+    }
 }

@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-01-31 20:21:44
+ * @LastEditTime: 2021-01-31 21:12:56
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \sckill-redis\src\test\java\com\wakaka\sckill_redis\SeckillRedisTest.java
+ */
 package com.wakaka.sckill_redis;
 
 import org.junit.Before;
@@ -27,7 +35,7 @@ public class SeckillRedisTest {
     public void init() {
         script = new DefaultRedisScript();
         script.setScriptSource(new ResourceScriptSource(
-                new ClassPathResource("seckill.lua")
+                new ClassPathResource("asdasdasd.lua")
         ));
         script.setResultType(Integer.class);
     }
@@ -79,5 +87,11 @@ public class SeckillRedisTest {
         }
 
         executor.shutdown();
+    }
+
+    @Test
+    public void testLua() {
+        Object s = redisTemplate.execute(script,Arrays.asList("testtttt","666"),"666");
+        System.out.println(s);
     }
 }

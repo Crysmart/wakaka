@@ -1,0 +1,27 @@
+server:
+  port: ${prot:3002}
+spring:
+  application:
+    name: service-2-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: 9a1a8366-044b-47a6-a188-6d37d7690124
+        cluster-name: DEFAULT
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+dubbo:
+  scan:
+    # dubbo服务扫描基准包
+    base-packages: com.wakaka.server2.server
+  protocol:
+    name: dubbo # dubbo协议 -1 表示自增端口
+    port: ${dubbo_port:20882} # dubbo端口
+  registry:
+    address: nacos://127.0.0.1:8848
+  application:
+    qos-enable: false # dubbo运维服务器
+  consumer:
+    check: false # 启动检查

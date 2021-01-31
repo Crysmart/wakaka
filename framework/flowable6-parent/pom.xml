@@ -4,12 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
     <name>flowable6-parent</name>
     <artifactId>flowable6-parent</artifactId>
+    <groupId>flowable6-parent</groupId>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
-    <parent>
-        <artifactId>framework</artifactId>
-        <groupId>org.wakaka</groupId>
-        <version>0.0.1</version>
-    </parent>
     <modules>
         <module>workflow</module>
         <module>designer</module>

@@ -31,11 +31,14 @@ public class SeckillRedisTest {
 
     DefaultRedisScript script;
 
+    /**
+     * 加载lua脚本
+     */
     @Before
     public void init() {
         script = new DefaultRedisScript();
         script.setScriptSource(new ResourceScriptSource(
-                new ClassPathResource("asdasdasd.lua")
+                new ClassPathResource("seckill.lua")
         ));
         script.setResultType(Integer.class);
     }
@@ -45,10 +48,20 @@ public class SeckillRedisTest {
 
     static final String goodsId = "seckill:goods:%s";
 
+    /**
+     * 格式化goosId
+     * @param id
+     * @return
+     */
     String getKey(String id) {
         return String.format(goodsId, id);
     }
 
+    /**
+     * 执行之前向redis中添加数据
+     * @param id
+     * @param total
+     */
     public void prepare(String id, int total) {
         String key = getKey(id);
         if (redisTemplate.hasKey(key)) {
@@ -61,12 +74,21 @@ public class SeckillRedisTest {
         redisTemplate.opsForHash().putAll(key, goods);
     }
 
+    /**
+     * 秒杀主要执行方
+     * @param id
+     * @param number
+     * @return
+     */
     public int secKill(String id, int number) {
         String key = getKey(id);
         Object alloc =  redisTemplate.execute(script, Arrays.asList(key), String.valueOf(number));
         return Integer.valueOf(alloc.toString());
     }
 
+    /**
+     * 测试执行方
+     */
     @Test
     public void testSeckill() {
         String id = "114";
@@ -89,6 +111,11 @@ public class SeckillRedisTest {
         executor.shutdown();
     }
 
+    /**
+     * 脚本参数接收测试
+     * Arrays.asList("testtttt","666")：作为key，有两个KEYS[1],KEYS[2]
+     * args:666：作为value，有一个 ARGV[1]
+     */
     @Test
     public void testLua() {
         Object s = redisTemplate.execute(script,Arrays.asList("testtttt","666"),"666");

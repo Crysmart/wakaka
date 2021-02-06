@@ -3,6 +3,7 @@ package com.wakaka.jmh.test;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Mode;
+import org.openjdk.jmh.results.format.ResultFormatType;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
@@ -33,6 +34,7 @@ public class BenchmarkModeTest {
                 .include(BenchmarkModeTest.class.getSimpleName())
                 //测试次数
                 .forks(1)
+                .resultFormat(ResultFormatType.JSON)
                 .build();
         //执行
         new Runner(opts).run();

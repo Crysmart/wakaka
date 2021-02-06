@@ -6,6 +6,7 @@ LastEditors: Please set LastEditors
 Description: In User Settings Edit
 FilePath: \sckill-redis\src\main\resources\seckill.lua
 --]]
+
 local falseRet = "0"
 local n = tonumber(ARGV[1])
 local key = KEYS[1]

@@ -7,8 +7,8 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
-        namespace: 9a1a8366-044b-47a6-a188-6d37d7690124
-        cluster-name: DEFAULT
+#        namespace: 9a1a8366-044b-47a6-a188-6d37d7690124
+#        cluster-name: DEFAULT
       config:
         server-addr: 127.0.0.1:8848
         file-extension: yaml

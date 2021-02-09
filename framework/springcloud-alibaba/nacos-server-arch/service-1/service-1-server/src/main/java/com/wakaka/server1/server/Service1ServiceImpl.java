@@ -23,4 +23,12 @@ public class Service1ServiceImpl implements IService1Service {
         List<DbServer> dbServers = dbServerMapper.selectList(null);
         return JSONObject.toJSONString(dbServers);
     }
+
+    @Override
+    public String insServer() {
+        DbServer dbServer = new DbServer();
+        dbServer.setName("玛卡巴卡服务①");
+        dbServerMapper.insert(dbServer);
+        return "玛卡巴卡①成功";
+    }
 }

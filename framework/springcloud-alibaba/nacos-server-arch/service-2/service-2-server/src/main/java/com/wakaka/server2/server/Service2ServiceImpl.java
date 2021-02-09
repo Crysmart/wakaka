@@ -22,4 +22,11 @@ public class Service2ServiceImpl implements IService2Service {
         List<DbServer> dbServers = dbServerMapper.selectList(null);
         return JSONObject.toJSONString(dbServers);
     }
+
+    @Override
+    public String insServer() {
+        DbServer dbServer = new DbServer();
+        dbServer.setName("蹦下卡拉卡②");
+        return "蹦下卡拉卡②成功";
+    }
 }

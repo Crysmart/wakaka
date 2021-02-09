@@ -6,4 +6,6 @@ package com.wakaka.server1.service;
  */
 public interface IService1Service {
     String getServer();
+
+    String insServer();
 }

@@ -2,6 +2,7 @@ package com.wakaka.app.controller;
 
 import com.wakaka.server1.service.IService1Service;
 import com.wakaka.server2.service.IService2Service;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,5 +29,13 @@ public class ApiController {
         sb.append(server2);
         return sb.toString();
         //return iService2Service.getServer();
+    }
+
+    @RequestMapping("/insAll")
+    @GlobalTransactional
+    public String insAll(){
+        String s = iService1Service.insServer();
+        String s2 = iService2Service.insServer();
+        return s+s2;
     }
 }

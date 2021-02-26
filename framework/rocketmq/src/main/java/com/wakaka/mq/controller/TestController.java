@@ -17,7 +17,7 @@ public class TestController {
     @GetMapping("test")
     public String test() throws Exception{
         DefaultMQProducer producer = new DefaultMQProducer("test2");
-        producer.setNamesrvAddr("192.168.6.193:9876");
+        producer.setNamesrvAddr("127.0.0.1:9876");
         producer.start();
         try {
             Message msg = new Message("Call_Supplier_Topic",

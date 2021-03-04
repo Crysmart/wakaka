@@ -8,6 +8,7 @@ public class RectangleShape implements Shape{
     /**
      * 画
      */
+    @Override
     public void draw() {
         System.out.println("画长方形");
     }

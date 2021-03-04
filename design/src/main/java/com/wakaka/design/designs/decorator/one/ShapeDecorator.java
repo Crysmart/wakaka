@@ -12,6 +12,7 @@ public abstract class ShapeDecorator implements Shape {
         this.shape = shape;
     }
 
+    @Override
     public void draw() {
         shape.draw();
     }

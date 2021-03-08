@@ -18,14 +18,7 @@ public class CreateThreadPool {
     private static final Long KEEP_ALIVE_TIME = 1L;
 
     public static void main(String[] args) {
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(
-                CORE_POOL_SIZE,
-                MAX_POOL_SIZE,
-                KEEP_ALIVE_TIME,
-                TimeUnit.SECONDS,
-                new ArrayBlockingQueue<>(QUEUE_CAPACITY),
-                new NameThreadFactory("test")
-        );
+        ThreadPoolExecutor executor = getThreadPoolExecutor();
 
         for (int i = 0; i < 10; i++) {
             executor.execute(() -> {
@@ -45,6 +38,21 @@ public class CreateThreadPool {
             e.printStackTrace();
         }
         System.out.println("Finished all threads");
+    }
+
+    /**
+     * 自定义线程池
+     * @return
+     */
+    public static ThreadPoolExecutor getThreadPoolExecutor() {
+        return new ThreadPoolExecutor(
+                CORE_POOL_SIZE,
+                MAX_POOL_SIZE,
+                KEEP_ALIVE_TIME,
+                TimeUnit.SECONDS,
+                new ArrayBlockingQueue<>(QUEUE_CAPACITY),
+                new NameThreadFactory("test")
+        );
     }
 }
 

@@ -1,4 +1,4 @@
-package com.wakaka.basis.proxy;
+package com.wakaka.cglibs.cp;
 
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;

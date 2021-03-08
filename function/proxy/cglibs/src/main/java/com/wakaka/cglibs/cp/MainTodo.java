@@ -1,4 +1,4 @@
-package com.wakaka.basis.proxy;
+package com.wakaka.cglibs.cp;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

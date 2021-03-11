@@ -1,10 +1,7 @@
 package com.wakaka.basis.juc;
 
 import java.time.Instant;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -45,6 +42,16 @@ public class CreateThreadPool {
      * @return
      */
     public static ThreadPoolExecutor getThreadPoolExecutor() {
+        /**
+         * public ThreadPoolExecutor(    int corePoolSize,//核心线程数
+         *                               int maximumPoolSize,//最大线程数
+         *                               long keepAliveTime,//
+         *                               TimeUnit unit,//
+         *                               BlockingQueue<Runnable> workQueue,//任务队列
+         *                               ThreadFactory threadFactory,//
+         *                               RejectedExecutionHandler handler//任务拒绝策略
+         *                          )
+         */
         return new ThreadPoolExecutor(
                 CORE_POOL_SIZE,
                 MAX_POOL_SIZE,

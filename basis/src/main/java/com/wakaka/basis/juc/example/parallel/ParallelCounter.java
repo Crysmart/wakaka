@@ -81,9 +81,10 @@ public class ParallelCounter {
         parallelCounter.executorJob(() -> map.put("aaa19","123"));
         parallelCounter.executorJob(() -> map.put("aaa20","123"));
 
+
         //固定timeout返回
         System.out.println(parallelCounter.await());
-        //获取当前多线程任务云运行完成任务数量
+        //获取当前多线程任务运行完成任务数量
         System.out.println(parallelCounter.countDownLatch);
         System.out.println(map);
         System.out.println(map.size());

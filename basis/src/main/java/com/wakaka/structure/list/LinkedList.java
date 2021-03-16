@@ -194,10 +194,9 @@ public class LinkedList<E> implements List<E> {
             for (int i = 1; i < index; i++) {
                 node = node.next;
             }
-            //先获取之前的三个索引元素
+            //先获取之前的两个个索引元素
             NodePoint<E> prev = node;
             NodePoint<E> current = node.next;
-            NodePoint<E> nextNode = node.next.next;
             //创建新的元素
             NodePoint<E> newNode = new NodePoint<>(prev, element, current);
             //上一个元素的next添加新元素
@@ -222,7 +221,7 @@ public class LinkedList<E> implements List<E> {
 
     private void checkIndex(int index) {
         if (index >= size){
-            throw new ArrayIndexOutOfBoundsException("size:" + size + "index:" + index);
+            throw new ArrayIndexOutOfBoundsException("size:" + size + "    index:" + index);
         }
     }
 }

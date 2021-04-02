@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-03-05 14:08:13
+ * @LastEditTime: 2021-04-02 13:29:39
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \wakaka\basis\src\main\java\com\wakaka\basis\juc\example\simpledateformat\TestSimpleDateFormat.java
+ */
 package com.wakaka.basis.juc.example.simpledateformat;
 
 import com.wakaka.basis.juc.CreateThreadPool;

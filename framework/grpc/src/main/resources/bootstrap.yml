@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: grpc-test
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.6.193:8848
+        namespace: d343b37f-6ce8-4fb8-9026-ecb22c3f0980
+      config:
+        enabled: true
+        server-addr: ${spring.cloud.nacos.discovery.server-addr} #配置中心的地址
+        file-extension: yml #配置文件结尾的配置
+        namespace: ${spring.cloud.nacos.discovery.namespace} #命名空间
+

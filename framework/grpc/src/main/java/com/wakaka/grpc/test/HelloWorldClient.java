@@ -16,6 +16,9 @@
 
 package com.wakaka.grpc.test;
 
+import com.wakaka.grpc.api.GreeterGrpc;
+import com.wakaka.grpc.api.HelloReply;
+import com.wakaka.grpc.api.HelloRequest;
 import io.grpc.Channel;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -23,9 +26,6 @@ import io.grpc.StatusRuntimeException;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import com.wakaka.grpc.test.GreeterGrpc;
-import com.wakaka.grpc.test.HelloRequest;
-import com.wakaka.grpc.test.HelloReply;
 
 /**
  * A simple client that requests a greeting from the {@link HelloWorldServer}.
@@ -41,7 +41,7 @@ public class HelloWorldClient {
     // shut it down.
 
     // Passing Channels to code makes code easier to test and makes it easier to reuse Channels.
-    blockingStub = com.wakaka.grpc.test.GreeterGrpc.newBlockingStub(channel);
+    blockingStub = GreeterGrpc.newBlockingStub(channel);
   }
 
   /** Say hello to server. */
@@ -65,7 +65,7 @@ public class HelloWorldClient {
   public static void main(String[] args) throws Exception {
     String user = "world";
     // Access a service running on the local machine on port 50051
-    String target = "localhost:50051";
+    String target = "localhost:9090";
     // Allow passing in the user and target strings as command line arguments
     if (args.length > 0) {
       if ("--help".equals(args[0])) {

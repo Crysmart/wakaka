@@ -16,15 +16,16 @@
 
 package com.wakaka.grpc.test;
 
+import com.wakaka.grpc.api.GreeterGrpc;
+import com.wakaka.grpc.api.HelloReply;
+import com.wakaka.grpc.api.HelloRequest;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
-import com.wakaka.grpc.test.GreeterGrpc;
-import com.wakaka.grpc.test.HelloRequest;
-import com.wakaka.grpc.test.HelloReply;
+
 
 /**
  * Server that manages startup/shutdown of a {@code Greeter} server.

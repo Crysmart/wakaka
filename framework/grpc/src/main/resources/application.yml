@@ -2,6 +2,8 @@ grpc:
   client:
     grpc-test:
       address: 'discovery:///grpc-test'
+      # local
+#      address: 'static://192.168.6.123:9090'
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext

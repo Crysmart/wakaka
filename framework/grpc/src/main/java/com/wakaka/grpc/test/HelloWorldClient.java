@@ -16,13 +16,18 @@
 
 package com.wakaka.grpc.test;
 
+import com.google.protobuf.ByteString;
 import com.wakaka.grpc.api.GreeterGrpc;
 import com.wakaka.grpc.api.HelloReply;
 import com.wakaka.grpc.api.HelloRequest;
+import com.wakaka.grpc.api.User;
 import io.grpc.Channel;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
+
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,7 +52,11 @@ public class HelloWorldClient {
   /** Say hello to server. */
   public void greet(String name) {
     logger.info("Will try to greet " + name + " ...");
-    HelloRequest request = HelloRequest.newBuilder().setName(name).build();
+    HelloRequest request = HelloRequest.newBuilder()
+            .setName(name)
+            .setPwd(name)
+            .setBits(ByteString.copyFrom(name, StandardCharsets.UTF_8))
+            .build();
     HelloReply response;
     try {
       response = blockingStub.sayHello(request);
@@ -55,6 +64,7 @@ public class HelloWorldClient {
       logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
       return;
     }
+    logger.info("Json: "+response.getJson());
     logger.info("Greeting: " + response.getMessage());
   }
 
@@ -65,7 +75,7 @@ public class HelloWorldClient {
   public static void main(String[] args) throws Exception {
     String user = "world";
     // Access a service running on the local machine on port 50051
-    String target = "localhost:9090";
+    String target = "localhost:50051";
     // Allow passing in the user and target strings as command line arguments
     if (args.length > 0) {
       if ("--help".equals(args[0])) {

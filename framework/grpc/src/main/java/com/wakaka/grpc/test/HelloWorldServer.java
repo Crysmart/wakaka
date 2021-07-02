@@ -16,13 +16,16 @@
 
 package com.wakaka.grpc.test;
 
+import com.google.protobuf.ByteString;
 import com.wakaka.grpc.api.GreeterGrpc;
 import com.wakaka.grpc.api.HelloReply;
 import com.wakaka.grpc.api.HelloRequest;
+import com.wakaka.grpc.api.User;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
@@ -83,12 +86,19 @@ public class HelloWorldServer {
   }
 
   static class GreeterImpl extends GreeterGrpc.GreeterImplBase {
-
     @Override
-    public void sayHello(HelloRequest req, StreamObserver<HelloReply> responseObserver) {
-      HelloReply reply = HelloReply.newBuilder().setMessage("Hello " + req.getName()).build();
-      responseObserver.onNext(reply);
+    public void sayHello(HelloRequest request, StreamObserver<HelloReply> responseObserver) {
+      System.out.println(request.getName());
+      System.out.println(request.getPwd());
+      ByteString bits = request.getBits();
+      System.out.println(bits.toStringUtf8());
+
+      HelloReply.Builder builder = HelloReply.newBuilder();
+      builder.setMessage("asdas");
+      builder.setJson("json");
+      responseObserver.onNext(builder.build());
       responseObserver.onCompleted();
     }
+
   }
 }

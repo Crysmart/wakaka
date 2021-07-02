@@ -20,9 +20,22 @@ service Greeter {
 // The request message containing the user's name.
 message HelloRequest {
     string name = 1;
+    string pwd = 2;
+    bytes bits = 3;
+    User user = 4;
+    repeated User userList = 5;
+    map<string,string> map = 6;
 }
 
 // The response message containing the greetings
 message HelloReply {
     string message = 1;
+    string json = 2;
+    bytes bits = 3;
 }
+
+message User {
+    string username = 1;
+    string pwd = 2;
+}
+

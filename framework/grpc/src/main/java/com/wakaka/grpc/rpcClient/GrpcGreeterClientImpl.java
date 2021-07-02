@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class GrpcGreeterClientImpl {
 
-    @GrpcClient("local-grpc-server")
+    @GrpcClient("grpc-test")
     private GreeterGrpc.GreeterBlockingStub blockingStub;
 
     public String receiveGreeting(String name) {

@@ -2,12 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-<!--	<parent>-->
-<!--		<groupId>org.springframework.boot</groupId>-->
-<!--		<artifactId>spring-boot-starter-parent</artifactId>-->
-<!--		<version>2.5.2</version>-->
-<!--		<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
-<!--	</parent>-->
 	<groupId>com.wakaka</groupId>
 	<artifactId>grpc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -15,8 +9,12 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>8</java.version>
-		<spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
-		<spring-cloud.version>2020.0.3</spring-cloud.version>
+		<!-- 强依赖版本 -->
+		<spring-boot.version>2.2.7.RELEASE</spring-boot.version>
+		<spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
+		<spring-cloud-alibaba.version>2.2.0.RELEASE</spring-cloud-alibaba.version>
+		<grpc.version>1.29.0</grpc.version>
+		<grpc-starter.version>2.8.0.RELEASE</grpc-starter.version>
 	</properties>
 
 	<dependencyManagement>
@@ -24,24 +22,24 @@
 			<dependency>
 				<groupId>io.grpc</groupId>
 				<artifactId>grpc-bom</artifactId>
-				<version>1.34.1</version>
+				<version>${grpc.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-parent</artifactId>
-				<version>2.4.5</version>
+				<version>${spring-boot.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-<!--			<dependency>-->
-<!--				<groupId>org.springframework.cloud</groupId>-->
-<!--				<artifactId>spring-cloud-dependencies</artifactId>-->
-<!--				<version>${spring-cloud.version}</version>-->
-<!--				<type>pom</type>-->
-<!--				<scope>import</scope>-->
-<!--			</dependency>-->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 			<dependency>
 				<groupId>com.alibaba.cloud</groupId>
 				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -51,11 +49,13 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+
 	<dependencies>
 		<dependency>
 			<groupId>net.devh</groupId>
 			<artifactId>grpc-spring-boot-starter</artifactId>
-			<version>2.12.0.RELEASE</version>
+			<version>${grpc-starter.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -65,18 +65,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>com.alibaba.nacos</groupId>-->
-<!--			<artifactId>nacos-config</artifactId>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>com.alibaba.nacos</groupId>-->
-<!--			<artifactId>nacos-client</artifactId>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>com.alibaba.cloud</groupId>-->
-<!--			<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
-<!--		</dependency>-->
+		<dependency>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+		</dependency>
 		<!-- grpc -->
 		<dependency>
 			<groupId>io.grpc</groupId>
@@ -84,7 +80,6 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>com.ytf.rpc.demo</finalName>
 		<extensions>
 			<extension>
 				<groupId>kr.motd.maven</groupId>

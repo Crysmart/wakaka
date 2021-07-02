@@ -1,7 +1,7 @@
 grpc:
   client:
-    local-grpc-server:
-      address: 'static://127.0.0.1:9090'
+    grpc-test:
+      address: 'discovery:///grpc-test'
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext

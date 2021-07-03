@@ -1,3 +1,5 @@
+server:
+  port: 0
 grpc:
   client:
     grpc-test:
@@ -7,3 +9,19 @@ grpc:
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext
+#spring:
+#  boot:
+#    admin:
+#      client:
+#        url: http://localhost:8080
+
+##开放端点提供服务健康监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+

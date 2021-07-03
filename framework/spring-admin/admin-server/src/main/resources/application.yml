@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: admin-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.6.193:8848
+

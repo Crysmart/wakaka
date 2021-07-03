@@ -1,0 +1,23 @@
+server:
+  port: 0
+#spring:
+#  boot:
+#    admin:
+#      client:
+#        url: http://localhost:8080
+spring:
+  application:
+    name: admin-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.6.193:8848
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS

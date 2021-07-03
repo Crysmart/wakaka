@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: admin-server
+  security:
+    user:
+      name: admin
+      password: admin
   cloud:
     nacos:
       discovery:

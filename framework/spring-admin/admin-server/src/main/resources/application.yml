@@ -12,4 +12,5 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.6.193:8848
+        namespace: d343b37f-6ce8-4fb8-9026-ecb22c3f0980
 

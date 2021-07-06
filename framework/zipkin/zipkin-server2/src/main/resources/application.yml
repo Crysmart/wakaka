@@ -1,0 +1,19 @@
+server:
+  port: 0
+spring:
+  application:
+    name: zipkin-server2
+  zipkin:
+    #zipkin中心地址
+    base-url: http://192.168.6.191:9411/
+    #发送数据类型 kafaka、rabbitmq、web
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1 #采样的百分比
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.6.193:8848
+        namespace: d343b37f-6ce8-4fb8-9026-ecb22c3f0980

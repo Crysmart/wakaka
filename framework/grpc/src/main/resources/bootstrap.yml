@@ -6,6 +6,15 @@ spring:
       discovery:
         server-addr: 192.168.6.193:8848
         ip: 192.168.6.133
+  zipkin:
+    #zipkin中心地址
+    base-url: http://192.168.6.191:9411/
+    #发送数据类型 kafaka、rabbitmq、web
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1 #采样的百分比
 grpc:
   server:
     port: 0

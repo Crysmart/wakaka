@@ -5,9 +5,7 @@ import com.wakaka.structure.entity.User;
 import java.util.StringJoiner;
 
 /**
- * 链表集合
- * @author Crysmart
- * @date 2020/11/17 10:19
+ * 链表集合,跟jdk版本差不多
  */
 public class LinkedList<E> implements List<E> {
     public static void main(String[] args) {

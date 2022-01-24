@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TestConfig {
-
     @Autowired
     UtilService utilService;
 
@@ -15,4 +14,5 @@ public class TestConfig {
     public String fucntion(){
         return utilService.stringMockAware();
     }
+
 }

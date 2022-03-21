@@ -8,7 +8,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.support.WebApplicationContextUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Crysmart
@@ -16,13 +20,15 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
  */
 @SpringBootApplication
 public class SbApplication implements ApplicationContextAware {
-
+    static int i;
 
     public static void main(String[] args){
         SpringApplication.run(SbApplication.class,args);
+
     }
 
     @Override
+    @Transactional
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         Object sbApplication = applicationContext.getBean(JobController.class);
         System.out.println(sbApplication);

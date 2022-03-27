@@ -11,7 +11,8 @@ public class SortUtil {
         for (int i = 0; i < len; i++) {
             arr[i] = new Random().nextInt(maxInt);
         }
-        sortBubbling(arr);
+        //sortBubbling(arr);
+        sortChoice(arr);
         System.out.println(Arrays.toString(arr));
 
     }
@@ -25,6 +26,25 @@ public class SortUtil {
                     arr[j] = arr[j+1];
                     arr[j+1] = temp;
                 }
+            }
+        }
+    }
+
+    /** 选择排序 */
+    public static void sortChoice(int[] arr){
+        int arrLen = arr.length;
+        int min;
+        for (int i = 0; i < arrLen-1; i++) {
+            min = i;
+            for (int j = i+1; j < arrLen; j++) {
+                if (arr[j] < arr[min]){
+                    min = j;
+                }
+            }
+            if (i!=min){
+                int temp = arr[i];
+                arr[i] = arr[min];
+                arr[min] = temp;
             }
         }
     }

@@ -15,7 +15,7 @@ public class SortUtil {
         System.out.println(Arrays.toString(arr));
 
     }
-    /** 冒泡排序 **/
+    /** 冒泡排序  **/
     public static void sortBubbling(int[] arr){
         int arrLen = arr.length;
         for (int i = 0; i < arrLen; i++) {

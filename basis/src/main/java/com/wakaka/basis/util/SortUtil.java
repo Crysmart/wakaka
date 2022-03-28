@@ -11,9 +11,11 @@ public class SortUtil {
         for (int i = 0; i < len; i++) {
             arr[i] = new Random().nextInt(maxInt);
         }
+        int[] arr2 = {2,4,1};
         //sortBubbling(arr);
-        sortChoice(arr);
-        System.out.println(Arrays.toString(arr));
+        //sortChoice(arr);
+        sortInsert(arr2);
+        System.out.println(Arrays.toString(arr2));
 
     }
     /** 冒泡排序  **/
@@ -45,6 +47,25 @@ public class SortUtil {
                 int temp = arr[i];
                 arr[i] = arr[min];
                 arr[min] = temp;
+            }
+        }
+    }
+
+    /** 插入排序 */
+    public static void sortInsert(int[] arr){
+        int arrLen = arr.length;
+        int temp;
+        for (int i = 0; i < arrLen; i++) {//2 4 1
+            temp = arr[i];
+            int j = i;
+
+            while (j > 0 && temp < arr[j-1]){
+                arr[j] = arr[j-1];
+                j--;
+            }
+
+            if (j != i){
+                arr[j] = temp;
             }
         }
     }

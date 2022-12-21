@@ -30,6 +30,8 @@ public class GroovyApplication {
                         "    }")
                 .invokeMethod("helloo", hashMap);
         System.out.println((String) helloo);
+
+        System.out.println(new GroovyShell().evaluate(""));
     }
 
 

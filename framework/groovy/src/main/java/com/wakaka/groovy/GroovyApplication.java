@@ -17,8 +17,7 @@ import java.util.HashMap;
 @SpringBootApplication
 public class GroovyApplication {
 
-    public static void main(String[] args) throws IOException {
-//        SpringApplication.run(GroovyApplication.class);
+    public static void main(String[] args) {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("a","b");
         hashMap.put("c","d");
